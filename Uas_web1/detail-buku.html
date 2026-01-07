@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Buku | Key Library</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 30px;
+        }
+        .book-info h1 { color: var(--primary-blue); margin-bottom: 10px; }
+        .book-info p { margin-bottom: 15px; line-height: 1.6; }
+        .label { font-weight: bold; color: var(--text-main); }
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"><span><b>Key Library</b></span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Kembali ke Beranda</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detail-container">
+            <div class="book-info">
+                <h1 id="det-judul">Judul Buku</h1>
+                <p><span class="label">Pengarang:</span> <span id="det-penulis"></span></p>
+                <p><span class="label">Tahun Terbit:</span> <span id="det-tahun"></span></p>
+                <p><span class="label">Kategori:</span> <span id="det-kategori"></span></p>
+                <hr style="margin-bottom: 20px; opacity: 0.2;">
+                <p id="det-deskripsi">Deskripsi buku akan muncul di sini...</p>
+                <a href="index.html" class="btn-back">Kembali</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Mengambil data dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        document.getElementById('det-judul').innerText = urlParams.get('judul');
+        document.getElementById('det-penulis').innerText = urlParams.get('penulis');
+        document.getElementById('det-tahun').innerText = urlParams.get('tahun');
+        document.getElementById('det-kategori').innerText = urlParams.get('kategori');
+        document.getElementById('det-deskripsi').innerText = urlParams.get('deskripsi');
+    </script>
+</body>
+</html>
